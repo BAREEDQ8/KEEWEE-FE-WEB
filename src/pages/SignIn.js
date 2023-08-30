@@ -17,12 +17,13 @@ const SignIn = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Paper
-        elevation={3}
+        elevation={6}
         style={{
           padding: "2rem",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          borderRadius: "15px",
         }}
       >
         <Avatar
@@ -66,7 +67,10 @@ const SignIn = () => {
             fullWidth
             variant="contained"
             color="primary"
-            style={{ marginTop: "1rem" }}
+            style={{
+              marginTop: "1rem",
+              borderRadius: "18px",
+            }}
             onClick={handleSignIn}
           >
             Sign In
