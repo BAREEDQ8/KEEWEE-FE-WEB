@@ -8,11 +8,21 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext";
+import { signout } from "../../api/Auth/index";
 
 const Topbar = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const [user, setUser] = useContext(UserContext);
+
+  const navigateToSignIn = () => {
+    navigate("/signin");
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -37,15 +47,28 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
+        {user ? (
+          <>
+            <IconButton>
+              <NotificationsOutlinedIcon />
+            </IconButton>
+            <IconButton>
+              <SettingsOutlinedIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => {
+                signout();
+                setUser(false);
+              }}
+            >
+              <ExitToAppOutlinedIcon />
+            </IconButton>
+          </>
+        ) : (
+          <IconButton onClick={navigateToSignIn}>
+            <PersonOutlinedIcon />
+          </IconButton>
+        )}
       </Box>
     </Box>
   );
