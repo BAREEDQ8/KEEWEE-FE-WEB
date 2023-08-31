@@ -14,7 +14,17 @@ const SignIn = () => {
   const handleSignIn = () => {};
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <CssBaseline />
       <Paper
         elevation={6}
