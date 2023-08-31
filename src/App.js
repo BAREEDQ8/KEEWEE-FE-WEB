@@ -12,7 +12,7 @@ import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import UserContext from "./context/UserContext";
 // import Calendar from "./scenes/calendar/calendar";
@@ -35,11 +35,11 @@ function App() {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className="app">
-            <Sidebar isSidebar={isSidebar} />
-            <main className="content">
-              <Topbar setIsSidebar={setIsSidebar} />
-              {user ? (
+          {user ? (
+            <div className="app">
+              <Sidebar isSidebar={isSidebar} />
+              <main className="content">
+                <Topbar setIsSidebar={setIsSidebar} />
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/signin" element={<SignIn />} />
@@ -54,13 +54,13 @@ function App() {
                   {/* <Route path="/calendar" element={<Calendar />} /> */}
                   <Route path="/geography" element={<Geography />} />
                 </Routes>
-              ) : (
-                <Routes>
-                  <Route path="/signin" element={<SignIn />} />
-                </Routes>
-              )}
-            </main>
-          </div>
+              </main>
+            </div>
+          ) : (
+            <Routes>
+              <Route path="/signin" element={<SignIn />} />
+            </Routes>
+          )}
         </ThemeProvider>
       </ColorModeContext.Provider>
     </UserContext.Provider>
