@@ -21,8 +21,9 @@ const SignIn = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start", // Adjusted from 'center' to 'flex-start'
         height: "100vh",
+        paddingTop: "5vh", // Added padding to the top to move card a bit up
       }}
     >
       <CssBaseline />
