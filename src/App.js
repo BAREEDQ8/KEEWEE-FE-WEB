@@ -41,6 +41,9 @@ function App() {
             {user && <Sidebar isSidebar={isSidebar} />}
             <main className="content">
               <Topbar setIsSidebar={setIsSidebar} />
+              <Routes>
+                <Route path="/support" element={<Support />} />
+              </Routes>
               {user ? (
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
@@ -52,7 +55,6 @@ function App() {
                   <Route path="/pie" element={<Pie />} />
                   <Route path="/line" element={<Line />} />
                   <Route path="/faq" element={<FAQ />} />
-                  <Route path="/support" element={<Support />} />
                   {/* <Route path="/calendar" element={<Calendar />} */}
                   <Route path="/geography" element={<Geography />} />
                 </Routes>
