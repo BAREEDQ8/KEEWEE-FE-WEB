@@ -18,6 +18,7 @@ import UserContext from "./context/UserContext";
 // import Calendar from "./scenes/calendar/calendar";
 import "./App.css";
 import SignIn from "./pages/SignIn";
+import Support from "./scenes/support/support";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -51,6 +52,7 @@ function App() {
                   <Route path="/pie" element={<Pie />} />
                   <Route path="/line" element={<Line />} />
                   <Route path="/faq" element={<FAQ />} />
+                  <Route path="/support" element={<Support />} />
                   {/* <Route path="/calendar" element={<Calendar />} */}
                   <Route path="/geography" element={<Geography />} />
                 </Routes>
